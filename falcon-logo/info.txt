@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Kingthings_Petrock
+font link: http://www.kingthingsfonts.co.uk/fonts/fonts.htm
+font author: Kingthings
+font author site: http://www.kingthingsfonts.co.uk/
+Slogan Font: Questrial-Regular.otf
+
+icon designer: Leadway Global LLC
+icon designer link: /irisi.tole
+        
+{"bg":"#E0EAEF","icon-gradient-0":"#08C7D6","icon-gradient-1":"#02023E","font":"#012F41","slogan":"#154355"}
+

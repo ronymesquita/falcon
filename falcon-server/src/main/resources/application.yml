@@ -1,0 +1,92 @@
+spring:
+  main:
+    lazy-initialization: true
+    banner-mode: off
+
+  datasource:
+    sql-script-encoding: UTF-8
+    
+    hikari:
+      connection-timeout: 1800000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    database: mysql
+    open-in-view: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect 
+
+  data:
+    redis:
+      repositories:
+        enabled: false
+
+  cache:
+    type: redis
+  
+  jta:
+    enabled: false
+  
+  http:
+    converters:
+      preferred-json-mapper: jackson
+      
+  redis:
+    host: falcon-cache
+    port: 6379
+
+server:
+  port: 80
+  servlet:
+    context-path: /api/v1/
+  compression:
+    enabled: true
+
+---
+spring:
+  profiles: development
+  
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+
+  datasource:
+    url: jdbc:mysql://falcon-db:3306/falcon_development?useUnicode=yes&characterEncoding=UTF-8&characterSetResults=UTF-8&serverTimezone=America/Sao_Paulo
+    username: root
+    password: root
+    platform: mariadb
+    driver-class-name: org.mariadb.jdbc.Driver
+    initialization-mode: always
+    continue-on-error: true
+
+---
+spring:
+  profiles: test
+  
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: 
+    platform: h2
+    initialization-mode: always
+    continue-on-error: true
+
+---
+spring:
+  profiles: production
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update

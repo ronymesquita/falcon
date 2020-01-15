@@ -1,0 +1,10 @@
+impedir a associação do aluno com as categorias quando nenhuma categoria ou estudante existir
+impedir a associação do aluno com o responsável legal quando nenhum responsável legal ou estudante existir
+
+problema com a data de nascimento do responsável legal no front-end e no back-end. O back-end rejeitou a data 1963-05-05
+limpar a tela quando uma pesquisa inválida for feita na associação entre estudante e categoria. O back-end transforma o pedido inválido em uma exceção
+
+class ResourceNotFoundException
+annotation ControllerAdvice
+annotation ExceptionHandle
+
